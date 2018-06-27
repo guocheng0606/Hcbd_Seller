@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="17sp"
+        android:textColor="@color/text_color"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        app:layout_widthPercent="80%">
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:hint="@string/txt_username"
+            android:textSize="12sp"
+            android:textColorHint="@color/text_grey_color"
+            android:paddingLeft="12dp"
+            android:background="@drawable/shape_input_grey_bg"
+            android:maxLines="1"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:hint="@string/txt_password"
+            android:textSize="12sp"
+            android:textColorHint="@color/text_grey_color"
+            android:paddingLeft="12dp"
+            android:background="@drawable/shape_input_grey_bg"
+            android:layout_marginTop="20dp"
+            android:maxLines="1"
+            android:inputType="textPassword"/>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/shape_login_button_bg"
+            />
+    </LinearLayout>
+
+
+
+</android.support.percent.PercentRelativeLayout>

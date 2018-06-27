@@ -1,0 +1,41 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.lany.state.StateLayout
+        android:id="@+id/stateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:emptyView="@layout/custom_empty_view"
+        app:errorView="@layout/custom_error_view"
+        app:loadingView="@layout/custom_loading_view"
+        app:networkView="@layout/custom_network_view"
+        app:viewState="content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
+            <ListView
+                android:id="@+id/lv_left"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:divider="@null"
+                android:scrollbars="none" />
+
+            <com.android.hcbd.seller.views.HaveHeaderListView
+                android:id="@+id/lv_right"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="7.5"
+                android:divider="@null"
+                android:scrollbars="none"
+                android:background="@color/colorPrimary" />
+        </LinearLayout>
+    </com.lany.state.StateLayout>
+
+
+</FrameLayout>

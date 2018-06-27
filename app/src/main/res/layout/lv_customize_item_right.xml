@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/iv_image"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"
+            app:riv_corner_radius="2dp"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="热干面"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/iv_image"
+            android:layout_alignTop="@id/iv_image"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$365"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_red_color"
+            android:layout_toRightOf="@id/iv_image"
+            android:layout_alignBottom="@id/iv_image"
+            android:layout_marginLeft="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_isoff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已下架"
+            android:textSize="10sp"
+            android:textColor="@color/text_red_color"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_name"/>
+
+        <LinearLayout
+            android:id="@+id/ll_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/iv_image">
+            <TextView
+                android:id="@+id/tv_edit1"
+                android:layout_width="48dp"
+                android:layout_height="22dp"
+                android:textSize="10sp"
+                android:text="下架"
+                android:background="@drawable/shape_fillet_bg"
+                android:gravity="center"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/tv_edit2"
+                android:layout_width="48dp"
+                android:layout_height="22dp"
+                android:textSize="10sp"
+                android:text="@string/txt_edit"
+                android:background="@drawable/shape_fillet_bg"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_marginLeft="8dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

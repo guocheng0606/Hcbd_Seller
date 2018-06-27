@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">点餐APP商家版</string>
+    <string name="txt_username">用户名</string>
+    <string name="txt_password">密码</string>
+
+    <string name="empty_seat">空位</string>
+    <string name="into_seat">入座</string>
+    <string name="reserve_seat">预定</string>
+    <string name="off_seat">结算</string>
+    <string name="txt_edit">编辑</string>
+
+    <string name="txt_right1">类别管理</string>
+    <string name="txt_right2">添加单品</string>
+    <string name="txt_right3">套餐内容列表</string>
+    <string name="txt_right4">添加套餐</string>
+    <string name="txt_right5">编辑套餐</string>
+
+    <string name="goods_edit1">单品编辑</string>
+    <string name="txt_add_pkg">添加套餐内容</string>
+
+
+    <string name="goods_name">商品名称</string>
+    <string name="input_goods_name">请输入商品名称</string>
+    <string name="goods_price">商品价格</string>
+    <string name="input_goods_price">请输入商品价格</string>
+    <string name="goods_category">商品分类</string>
+    <string name="input_goods_category">请选择商品分类</string>
+    <string name="goods_info">商品详情</string>
+    <string name="input_goods_info">请输入商品详情</string>
+    <string name="goods_photo">添加照片</string>
+    <string name="input_goods_photo">请输入添加照片</string>
+
+    <string name="pkg_goods_name">套餐名称</string>
+    <string name="input_pkg_goods_name">请输入套餐名称</string>
+    <string name="pkg_goods_price">套餐价格</string>
+    <string name="input_pkg_goods_price">请输入套餐价格</string>
+    <string name="pkg_goods_category">套餐分类</string>
+    <string name="input_pkg_goods_category">请选择套餐分类</string>
+    <string name="pkg_goods_info">套餐详情</string>
+    <string name="input_pkg_goods_info">请输入套餐详情</string>
+    <string name="pkg_goods_content">套餐内容</string>
+    <string name="input_select_num">请输入选择数量</string>
+
+    <string name="pkg_name">套餐名称</string>
+    <string name="input_pkg_name">请输入套餐名称</string>
+    <string name="content">内容</string>
+    <string name="input_content">请输入内容</string>
+    <string name="select_num">可选数量（个）</string>
+    <string name="inout_select_num">请输入可选数量（个）</string>
+
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="complete">完成</string>
+    <string name="delete">删除</string>
+
+    <string name="txt_seeting_1">密码修改</string>
+    <string name="txt_seeting_2">用户反馈</string>
+    <string name="txt_seeting_3">关于</string>
+    <string name="txt_seeting_4">检查更新</string>
+    <string name="txt_seeting_5">退出登录</string>
+
+    <string name="txt_order">订单详情</string>
+
+    <string name="text_search_empty">该店内没有相关的商品哦，换个试试吧!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

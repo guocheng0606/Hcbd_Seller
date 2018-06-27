@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"  >
+        <LinearLayout
+            android:id="@+id/ll_category"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shape_input_grey_bg">
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:textColor="@color/text_color"
+                android:hint="@string/input_pkg_goods_category"
+                android:textColorHint="@color/text_grey_color"
+                android:paddingLeft="12dp"
+                android:maxLines="1"
+                android:inputType="text"
+                android:gravity="center_vertical"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_down"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/et_num"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_input_grey_bg"
+            android:hint="@string/input_select_num"
+            android:inputType="number"
+            android:maxLines="1"
+            android:paddingLeft="12dp"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/text_grey_color"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/iv_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_add_del_bg"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:elevation="8dp">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_back_black"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="15dp"/>
+        <com.android.hcbd.seller.views.ClearEditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:textSize="14sp"
+            android:textColor="@color/text_color"
+            android:hint="@string/input_goods_name"
+            android:textColorHint="@color/text_grey_color"
+            android:paddingLeft="12dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/shape_input_grey_bg"
+            android:maxLines="1"
+            android:inputType="text"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@+id/iv_back"
+            android:layout_toLeftOf="@+id/iv_search"
+            android:layout_centerVertical="true"/>
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_search"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="15dp"/>
+    </RelativeLayout>
+
+    <com.lany.state.StateLayout
+        android:id="@+id/stateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:emptyView="@layout/search_empty_view"
+        app:errorView="@layout/custom_error_view"
+        app:loadingView="@layout/custom_loading_view"
+        app:networkView="@layout/custom_network_view"
+        app:viewState="content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </RelativeLayout>
+    </com.lany.state.StateLayout>
+
+
+</LinearLayout>
