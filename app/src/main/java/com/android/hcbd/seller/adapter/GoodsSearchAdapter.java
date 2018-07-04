@@ -97,7 +97,7 @@ public class GoodsSearchAdapter extends BaseAdapter {
         holder.tv_edit2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(goodsInfo.getTypeId() != 9){
+                if(goodsInfo.getCode().indexOf("P") == -1){
                     Intent intent = new Intent(mContext, GoodsEditActivity.class);
                     intent.putExtra("info",goodsInfo);
                     mContext.startActivity(intent);

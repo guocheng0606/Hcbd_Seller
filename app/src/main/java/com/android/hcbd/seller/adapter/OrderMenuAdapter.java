@@ -56,7 +56,10 @@ public class OrderMenuAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         Glide.with(mContext).load(HttpUrlUtils.BASEURL+list.get(i).getMenu().getUrl()).into(holder.iv);
-        holder.tv_name.setText(""+list.get(i).getMenu().getName());
+        if(list.get(i).getMenu().getCode().indexOf("P") != -1)
+            holder.tv_name.setText(list.get(i).getMenu().getName()+"\n"+list.get(i).getItem().getPkg());
+        else
+            holder.tv_name.setText(""+list.get(i).getMenu().getName());
         holder.tv_num.setText("X"+list.get(i).getItem().getNum());
         holder.tv_price.setText("￥"+ CommonUtils.subZeroAndDot(String.valueOf(list.get(i).getItem().getAmt())));
         return view;

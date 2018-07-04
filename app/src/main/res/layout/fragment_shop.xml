@@ -24,7 +24,8 @@
             android:src="@drawable/ic_search"
             android:layout_alignParentRight="true"
             android:paddingLeft="10dp"
-            android:paddingRight="15dp"/>
+            android:paddingRight="15dp"
+            android:visibility="gone"/>
     </RelativeLayout>
 
     <com.lany.state.StateLayout
