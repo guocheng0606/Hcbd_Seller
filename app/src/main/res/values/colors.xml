@@ -13,5 +13,6 @@
     <color name="text_red_color">#e60012</color>
     <color name="tab_bar_color">#999999</color>
     <color name="line">#dddddd</color>
+    <color name="text_primary">#DF000000</color>
 
 </resources>

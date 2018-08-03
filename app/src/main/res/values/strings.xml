@@ -53,16 +53,14 @@
     <string name="complete">完成</string>
     <string name="delete">删除</string>
 
-    <string name="txt_seeting_1">密码修改</string>
-    <string name="txt_seeting_2">用户反馈</string>
-    <string name="txt_seeting_3">关于</string>
-    <string name="txt_seeting_4">检查更新</string>
-    <string name="txt_seeting_5">退出登录</string>
+    <string name="txt_setting_1">密码修改</string>
+    <string name="txt_setting_2">打印设置</string>
+    <string name="txt_setting_3">关于</string>
+    <string name="txt_setting_4">检查更新</string>
+    <string name="txt_setting_5">退出登录</string>
 
     <string name="txt_order">订单详情</string>
 
     <string name="text_search_empty">该店内没有相关的商品哦，换个试试吧!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

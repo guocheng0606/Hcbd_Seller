@@ -60,11 +60,20 @@
             </RelativeLayout>
         </LinearLayout>
 
+
         <Button
-            android:id="@+id/btn"
+            android:id="@+id/btn01"
             android:layout_width="65dp"
             android:layout_height="90dp"
             android:background="@color/colorAccent"
+            android:text="打印"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"/>
+        <Button
+            android:id="@+id/btn02"
+            android:layout_width="65dp"
+            android:layout_height="90dp"
+            android:background="@color/text_red_color"
             android:text="结算"
             android:textSize="14sp"
             android:textColor="@android:color/white"/>

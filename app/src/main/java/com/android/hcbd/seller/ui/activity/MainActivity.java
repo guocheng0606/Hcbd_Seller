@@ -1,13 +1,18 @@
 package com.android.hcbd.seller.ui.activity;
 
+import android.Manifest;
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.android.hcbd.seller.R;
 import com.android.hcbd.seller.base.BaseActivity;
+import com.android.hcbd.seller.bt.BluetoothController;
 import com.android.hcbd.seller.event.MessageEvent;
 import com.android.hcbd.seller.ui.fragment.GoodsFragment;
 import com.android.hcbd.seller.ui.fragment.OrderFragment;
@@ -32,6 +37,7 @@ import me.majiajie.pagerbottomtabstrip.listener.OnTabItemSelectedListener;
 
 public class MainActivity extends BaseActivity {
 
+    private static final int REQUEST_OPEN_BT_CODE = 0x11;
     @BindView(R.id.tab)
     PageNavigationView tab;
     private FragmentManager fragmentManager;
@@ -51,17 +57,28 @@ public class MainActivity extends BaseActivity {
         fragmentManager = getSupportFragmentManager();
         setTabSelection(0);
         initBottomNavigation();
+        //6.0以上的手机要地理位置权限
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 2);
+        }
+        BluetoothController.init(this);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(MessageEvent event) {
-        switch (event.getEventId()){
+        switch (event.getEventId()) {
             case MessageEvent.EVENT_LOGINOUT:
-                startActivity(new Intent(this,LoginActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 finishActivity();
                 break;
+            case MessageEvent.EVENT_OPEN_BLE:
+                Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(intent, REQUEST_OPEN_BT_CODE);
+                break;
         }
-    };
+    }
+
+    ;
 
     @Override
     protected void onDestroy() {
@@ -71,10 +88,10 @@ public class MainActivity extends BaseActivity {
 
     private void initBottomNavigation() {
         NavigationController navigationController = tab.custom()
-                .addItem(newItem(R.drawable.ic_tab_1_nol,R.drawable.ic_tab_1_sel,"店铺管理"))
-                .addItem(newItem(R.drawable.ic_tab_2_nol,R.drawable.ic_tab_2_sel,"商品管理"))
-                .addItem(newItem(R.drawable.ic_tab_3_nol,R.drawable.ic_tab_3_sel,"订单管理"))
-                .addItem(newItem(R.drawable.ic_tab_4_nol,R.drawable.ic_tab_4_sel,"设置"))
+                .addItem(newItem(R.drawable.ic_tab_1_nol, R.drawable.ic_tab_1_sel, "店铺管理"))
+                .addItem(newItem(R.drawable.ic_tab_2_nol, R.drawable.ic_tab_2_sel, "商品管理"))
+                .addItem(newItem(R.drawable.ic_tab_3_nol, R.drawable.ic_tab_3_sel, "订单管理"))
+                .addItem(newItem(R.drawable.ic_tab_4_nol, R.drawable.ic_tab_4_sel, "设置"))
                 .build();
         //navigationController.setSelect(0);
         navigationController.addTabItemSelectedListener(new OnTabItemSelectedListener() {
@@ -95,36 +112,36 @@ public class MainActivity extends BaseActivity {
     private void setTabSelection(int i) {
         fragmentTransaction = fragmentManager.beginTransaction();
         hideAllFragment(fragmentTransaction);
-        switch (i){
+        switch (i) {
             case 0:
-                if(shopFragment == null){
+                if (shopFragment == null) {
                     shopFragment = new ShopFragment();
-                    fragmentTransaction.add(R.id.fl_layout,shopFragment);
-                }else{
+                    fragmentTransaction.add(R.id.fl_layout, shopFragment);
+                } else {
                     fragmentTransaction.show(shopFragment);
                 }
                 break;
             case 1:
-                if(goodsFragment == null){
+                if (goodsFragment == null) {
                     goodsFragment = new GoodsFragment();
-                    fragmentTransaction.add(R.id.fl_layout,goodsFragment);
-                }else{
+                    fragmentTransaction.add(R.id.fl_layout, goodsFragment);
+                } else {
                     fragmentTransaction.show(goodsFragment);
                 }
                 break;
             case 2:
-                if(orderFragment == null){
+                if (orderFragment == null) {
                     orderFragment = new OrderFragment();
-                    fragmentTransaction.add(R.id.fl_layout,orderFragment);
-                }else{
+                    fragmentTransaction.add(R.id.fl_layout, orderFragment);
+                } else {
                     fragmentTransaction.show(orderFragment);
                 }
                 break;
             case 3:
-                if(settingFragment == null){
+                if (settingFragment == null) {
                     settingFragment = new SettingFragment();
-                    fragmentTransaction.add(R.id.fl_layout,settingFragment);
-                }else{
+                    fragmentTransaction.add(R.id.fl_layout, settingFragment);
+                } else {
                     fragmentTransaction.show(settingFragment);
                 }
                 break;
@@ -133,10 +150,10 @@ public class MainActivity extends BaseActivity {
     }
 
     private void hideAllFragment(FragmentTransaction fragmentTransaction) {
-        if(shopFragment != null) fragmentTransaction.hide(shopFragment);
-        if(goodsFragment != null) fragmentTransaction.hide(goodsFragment);
-        if(orderFragment != null) fragmentTransaction.hide(orderFragment);
-        if(settingFragment != null) fragmentTransaction.hide(settingFragment);
+        if (shopFragment != null) fragmentTransaction.hide(shopFragment);
+        if (goodsFragment != null) fragmentTransaction.hide(goodsFragment);
+        if (orderFragment != null) fragmentTransaction.hide(orderFragment);
+        if (settingFragment != null) fragmentTransaction.hide(settingFragment);
     }
 
     //创建一个Item
@@ -149,12 +166,12 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
     private static boolean mBackKeyPressed = false;//记录是否有首次按键
+
     @Override
     public void onBackPressed() {
-        if(!mBackKeyPressed){
-            ToastUtils.showShortToast(MainActivity.this,"再按一次退出程序");
+        if (!mBackKeyPressed) {
+            ToastUtils.showShortToast(MainActivity.this, "再按一次退出程序");
             mBackKeyPressed = true;
             new Timer().schedule(new TimerTask() {//延时两秒，如果超出则擦错第一次按键记录
                 @Override
@@ -162,10 +179,22 @@ public class MainActivity extends BaseActivity {
                     mBackKeyPressed = false;
                 }
             }, 2000);
-        }else{//退出程序
+        } else {//退出程序
             this.finish();
             System.exit(0);
         }
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_OPEN_BT_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                //MyApplication.getInstance().getMyService().flag = true;
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                //MyApplication.getInstance().getMyService().flag = false;
+            }
+        }
+    }
 }

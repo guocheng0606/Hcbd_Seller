@@ -11,8 +11,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.hcbd.seller.R;
+import com.android.hcbd.seller.bt.BluetoothController;
 import com.android.hcbd.seller.event.MessageEvent;
+import com.android.hcbd.seller.ui.activity.BluetoothActivity;
 import com.android.hcbd.seller.ui.activity.UpdatePasswordActivity;
+import com.android.hcbd.seller.utils.ToastUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -84,12 +87,16 @@ public class SettingFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.tv_item1:
                 startActivity(new Intent(getActivity(), UpdatePasswordActivity.class));
                 break;
             case R.id.tv_item2:
-
+                if (BluetoothController.getBluetoothAdapter() == null) {
+                    ToastUtils.showShortToast(getActivity(), "当前设备不支持蓝牙功能");
+                } else {
+                    startActivity(new Intent(getActivity(), BluetoothActivity.class));
+                }
                 break;
             case R.id.tv_item3:
 

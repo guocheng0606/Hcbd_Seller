@@ -16,11 +16,19 @@ public class MessageEvent {
     public static final int EVENT_ORDER_PAY_UPDATE = 107;
 
     public static final int EVENT_LOGINOUT = 120;
+    public static final int EVENT_OPEN_BLE = 121;
 
     private int eventId;
     private Object obj;
     private Object obj2;
+
     public MessageEvent() {
+    }
+
+    public MessageEvent(int eventId, Object obj, Object obj2) {
+        this.eventId = eventId;
+        this.obj = obj;
+        this.obj2 = obj2;
     }
 
     public MessageEvent(int eventId) {

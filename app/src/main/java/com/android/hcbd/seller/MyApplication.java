@@ -1,10 +1,18 @@
 package com.android.hcbd.seller;
 
 import android.app.Application;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 
+import com.android.hcbd.seller.crash.CrashHandler;
 import com.android.hcbd.seller.entity.GoodsInfo;
 import com.android.hcbd.seller.entity.LoginInfo;
 import com.android.hcbd.seller.imageloader.GlideImageLoader;
+import com.android.hcbd.seller.service.GetDataService;
 import com.blankj.utilcode.util.Utils;
 import com.lzy.imagepicker.ImagePicker;
 import com.lzy.imagepicker.view.CropImageView;
@@ -26,12 +34,15 @@ import okhttp3.OkHttpClient;
  * Created by guocheng on 2018/3/28.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends Application implements ServiceConnection {
 
     private static MyApplication instance;
     private LoginInfo loginInfo;
     private List<List<String>> leftTypeList;
     private List<GoodsInfo> goodList;
+    private GetDataService mService;
+    private BluetoothDevice mBluetoothDevice;
+    private BluetoothSocket mBluetoothSocket;
 
     @Override
     public void onCreate() {
@@ -40,6 +51,10 @@ public class MyApplication extends Application {
         Utils.init(this);
         initOkGo();
         initImagePicker();
+        bindService();
+
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(this);
     }
 
     private void initImagePicker() {
@@ -120,4 +135,45 @@ public class MyApplication extends Application {
         this.goodList = goodList;
     }
 
+    private void bindService() {
+        Intent intent = new Intent(this, GetDataService.class);
+        this.bindService(intent, this, BIND_AUTO_CREATE);
+    }
+
+    public void unBindService() {
+        this.unbindService(this);
+    }
+
+    @Override
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        if (iBinder instanceof GetDataService.MyBinder) {
+            mService = ((GetDataService.MyBinder) iBinder).getService();
+            mService.getData();
+        }
+    }
+
+    @Override
+    public void onServiceDisconnected(ComponentName componentName) {
+        mService = null;
+    }
+
+    public GetDataService getMyService() {
+        return mService;
+    }
+
+    public BluetoothDevice getmBluetoothDevice() {
+        return mBluetoothDevice;
+    }
+
+    public void setmBluetoothDevice(BluetoothDevice mBluetoothDevice) {
+        this.mBluetoothDevice = mBluetoothDevice;
+    }
+
+    public BluetoothSocket getmBluetoothSocket() {
+        return mBluetoothSocket;
+    }
+
+    public void setmBluetoothSocket(BluetoothSocket mBluetoothSocket) {
+        this.mBluetoothSocket = mBluetoothSocket;
+    }
 }

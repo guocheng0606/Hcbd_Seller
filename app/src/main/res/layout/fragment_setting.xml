@@ -35,7 +35,7 @@
                 android:textSize="13sp"
                 android:gravity="center_vertical"
                 android:paddingLeft="17dp"
-                android:text="@string/txt_seeting_1"
+                android:text="@string/txt_setting_1"
                 android:layout_marginTop="25dp"
                 android:foreground="?android:attr/selectableItemBackground"/>
             <TextView
@@ -47,7 +47,7 @@
                 android:textSize="13sp"
                 android:gravity="center_vertical"
                 android:paddingLeft="17dp"
-                android:text="@string/txt_seeting_2"
+                android:text="@string/txt_setting_2"
                 android:foreground="?android:attr/selectableItemBackground"/>
             <TextView
                 android:id="@+id/tv_item3"
@@ -58,7 +58,7 @@
                 android:textSize="13sp"
                 android:gravity="center_vertical"
                 android:paddingLeft="17dp"
-                android:text="@string/txt_seeting_3"
+                android:text="@string/txt_setting_3"
                 android:foreground="?android:attr/selectableItemBackground"/>
             <TextView
                 android:id="@+id/tv_item4"
@@ -69,7 +69,7 @@
                 android:textSize="13sp"
                 android:gravity="center_vertical"
                 android:paddingLeft="17dp"
-                android:text="@string/txt_seeting_4"
+                android:text="@string/txt_setting_4"
                 android:foreground="?android:attr/selectableItemBackground"/>
 
             <TextView
@@ -81,7 +81,7 @@
                 android:textSize="13sp"
                 android:gravity="center_vertical"
                 android:paddingLeft="17dp"
-                android:text="@string/txt_seeting_5"
+                android:text="@string/txt_setting_5"
                 android:layout_marginTop="25dp"
                 android:foreground="?android:attr/selectableItemBackground"/>
         </LinearLayout>

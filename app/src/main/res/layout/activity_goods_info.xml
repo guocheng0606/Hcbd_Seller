@@ -27,6 +27,7 @@
             android:textColor="@color/text_color"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/iv_back"/>
+
     </RelativeLayout>
 
     <ScrollView

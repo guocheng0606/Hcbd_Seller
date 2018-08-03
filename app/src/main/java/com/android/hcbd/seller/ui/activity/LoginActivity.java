@@ -57,6 +57,7 @@ public class LoginActivity extends BaseActivity {
         String user = SharedPreferencesUtil.get(this, "username_info");
         etUsername.setText(user);
         etUsername.setSelection(user.length());
+        etUsername.setText("Eingabe");
         etPassword.setText("1");
     }
 

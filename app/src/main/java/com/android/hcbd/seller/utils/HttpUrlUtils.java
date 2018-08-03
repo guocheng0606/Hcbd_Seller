@@ -36,6 +36,7 @@ public class HttpUrlUtils {
     public static String get_order_list_url = BASEURL + "/orderApp/carAction!list.action";//订单管理列表
     public static String get_order_pay_url = BASEURL + "/orderApp/carAction!payCar.action";//订单管理列表结算
     public static String get_order_info_url = BASEURL + "/orderApp/carAction!view.action";//查看订单详情
+    public static String update_order_state_url = BASEURL + "/orderApp/carAction!updState.action";//修改订单状态
 
 
 

@@ -140,7 +140,7 @@
 #---------------------------------------------------------------------------------------------------
 #---------------------------------实体类---------------------------------
 #修改成你对应的包名
--keep class com.android.hcbd.whsw.entity.** { *; }
+-keep class com.android.hcbd.seller.entity.** { *; }
 
 #---------------------------------第三方包-------------------------------
 ##百度定位
@@ -194,6 +194,9 @@
 #flowlayout
 -dontwarn com.zhy.view.flowlayout.**
 -keep class com.zhy.view.flowlayout.** { *; }
+#flowlayout
+-dontwarn com.github.promeg.pinyinhelper.**
+-keep class com.github.promeg.pinyinhelper.** { *; }
 
 ####################zxing#####################
 #-keep class com.google.zxing.** {*;}
@@ -267,3 +270,19 @@
 #-dontwarn org.apache.log4j.**
 #-keep class  org.apache.log4j.** { *;}
 
+#Rxjava RxAndroid
+-dontwarn rx.*
+-dontwarn sun.misc.**
+
+-keepclassmembers class rx.internal.util.unsafe.*ArrayQueue*Field* {
+   long producerIndex;
+   long consumerIndex;
+}
+
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueProducerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode producerNode;
+}
+
+-keepclassmembers class rx.internal.util.unsafe.BaseLinkedQueueConsumerNodeRef {
+    rx.internal.util.atomic.LinkedQueueNode consumerNode;
+}

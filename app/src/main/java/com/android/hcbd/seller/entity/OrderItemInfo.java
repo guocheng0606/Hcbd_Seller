@@ -1,12 +1,13 @@
 package com.android.hcbd.seller.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by guocheng on 2018/4/28.
  */
 
-public class OrderItemInfo {
+public class OrderItemInfo implements Serializable {
 
     /**
      * item : {"amt":10,"car":{"amt":17,"amts":null,"carItemIdHql":"","code":null,"createTime":"2018-04-28T10:57:33","id":98,"itemsIds":null,"menuIds":null,"name":null,"names":"null-null","nums":null,"operId":"dc80da7d-f5f8-4963-8dc6-0f6db784fdfe","operNames":null,"orgCode":null,"paramsObj":null,"pkgs":null,"remark":"","seq":21,"shopId":1,"state":"1","stateContent":"已下单","states":null,"tabCode":"1F02"},"id":4,"menu":{"amt":5,"code":"1C00000001","createTime":"2018-02-28T14:22:13","id":33,"menuItemIdHql":"","menuType":"C","name":"青菜","names":"1C00000001-青菜","num":-1,"operNames":"S0000-Eingabe","orgCode":"027","paramsObj":null,"remark":"青菜","seq":0,"shopId":null,"state":"1","stateContent":"启用","tabCode":null,"type":{"code":null,"createTime":"2018-02-28T14:20:55","id":10,"modelContent":null,"name":"配菜","names":"null-配菜","operNames":"S0000-Eingabe","operate":null,"orgCode":"027","paramsObj":null,"remark":"","shop":{"code":"A000000000001","createTime":"2018-02-28T14:17:36","floor":2,"id":1,"img":null,"modelContent":["商家","/order/shopAction!"],"name":"麻辣汤","names":"A000000000001-麻辣汤","operNames":"S0000-Eingabe","orgCode":"027","paramsObj":null,"qrCode":"WXlNShzTbYX3nej91ndbIA==","remark":null,"room":20,"state":"1","stateContent":"启用","table":20,"upload":null,"uploadContentType":null,"uploadFileName":null,"url":""},"state":"1","stateContent":"启用"},"upload":null,"uploadContentType":null,"uploadFileName":null,"url":"/upload/file/027/S0000/2018/2/28/2018_02_28 14_22_13.png"},"num":2,"pkg":"","state":"1"}
@@ -32,7 +33,7 @@ public class OrderItemInfo {
         this.menu = menu;
     }
 
-    public static class ItemBean {
+    public static class ItemBean implements Serializable {
         /**
          * amt : 10.0
          * car : {"amt":17,"amts":null,"carItemIdHql":"","code":null,"createTime":"2018-04-28T10:57:33","id":98,"itemsIds":null,"menuIds":null,"name":null,"names":"null-null","nums":null,"operId":"dc80da7d-f5f8-4963-8dc6-0f6db784fdfe","operNames":null,"orgCode":null,"paramsObj":null,"pkgs":null,"remark":"","seq":21,"shopId":1,"state":"1","stateContent":"已下单","states":null,"tabCode":"1F02"}
@@ -107,7 +108,7 @@ public class OrderItemInfo {
             this.state = state;
         }
 
-        public static class CarBean {
+        public static class CarBean implements Serializable {
             /**
              * amt : 17.0
              * amts : null
@@ -343,7 +344,7 @@ public class OrderItemInfo {
             }
         }
 
-        public static class MenuBean {
+        public static class MenuBean implements Serializable {
             /**
              * amt : 5.0
              * code : 1C00000001
@@ -578,7 +579,7 @@ public class OrderItemInfo {
                 this.url = url;
             }
 
-            public static class TypeBean {
+            public static class TypeBean implements Serializable {
                 /**
                  * code : null
                  * createTime : 2018-02-28T14:20:55
@@ -723,7 +724,7 @@ public class OrderItemInfo {
                     this.stateContent = stateContent;
                 }
 
-                public static class ShopBean {
+                public static class ShopBean implements Serializable {
                     /**
                      * code : A000000000001
                      * createTime : 2018-02-28T14:17:36
@@ -942,7 +943,7 @@ public class OrderItemInfo {
         }
     }
 
-    public static class MenuBeanX {
+    public static class MenuBeanX implements Serializable {
         /**
          * amt : 5.0
          * code : 1C00000001
